@@ -32,4 +32,16 @@ class Block:
         self.previous_hash = previous_hash
         self.hash = self.calculate_hash()
 
+    def calculate_hash(self):
+        block_string = json.dumps(self.__dict__, sort_keys=True)
+        return hashlib.sha256(block_string.encode()).hexdigest()
+
+class Blockchain:
+    def __init__(self):
+        self.chain = []
+        self.create_genesis_block()
+
+    def create_genesis_block(self):
+        self.chain.append(Block(0, time(), "Genesis Block", "0"))
+
     
