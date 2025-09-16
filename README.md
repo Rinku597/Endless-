@@ -33,3 +33,6 @@ class Block:
         self.hash = self.calculate_hash()
 
     **rock**
+
+everyone 
+new_block.hash
